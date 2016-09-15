@@ -707,10 +707,12 @@
             vm.currentIndex = replace ? getRef() : getIndex(forward);
             vm.currentPage = Math.floor(getRef() / vm.options.perSlide);
 
-            setActive();
-            setVisible();
-            applyStyles();
-            setSettings();
+            if(vm.slides.length){
+              setActive();
+              setVisible();
+              applyStyles();
+              setSettings();
+            }
 
             if (vm.currentIndex > vm.slides.length - vm.options.displayed && !vm.options.loop) {
                 stop();
